@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //Preventing device orientation
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp, // .portraitDown --> for rotating
+    ]);
     return MaterialApp(
       title: 'Calculator',
       debugShowCheckedModeBanner: false,
