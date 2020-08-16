@@ -29,22 +29,22 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   String output = "0";
 
   String _output = "0";
-  int num1 = 0;
-  int num2 = 0;
+  double num1 = 0.0;
+  double num2 = 0.0;
   String operand = "";
 
   buttonPressed(String buttonText) {
     if (buttonText == "C") {
       _output = "0";
-      num1 = 0;
-      num2 = 0;
+      num1 = 0.0;
+      num2 = 0.0;
       operand = "";
     } else if (buttonText == "+" ||
         buttonText == "-" ||
         buttonText == "/" ||
         buttonText == "x" ||
         buttonText == "%") {
-      num1 = int.parse(output);
+      num1 = double.parse(output);
 
       operand = buttonText;
       _output = "0";
@@ -55,17 +55,17 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
         _output = _output + buttonText;
       }
     } else if (buttonText == "=") {
-      num2 = int.parse(output);
+      num2 = double.parse(output);
 
-      if (buttonText == "+") {
+      if (operand == "+") {
         _output = (num1 + num2).toString();
-      } else if (buttonText == "-") {
+      } else if (operand == "-") {
         _output = (num1 - num2).toString();
-      } else if (buttonText == "/") {
+      } else if (operand == "/") {
         _output = (num1 / num2).toString();
-      } else if (buttonText == "x") {
+      } else if (operand == "x") {
         _output = (num1 * num2).toString();
-      } else if (buttonText == "%") {
+      } else if (operand == "%") {
         _output = (num1 % num2).toString();
       } else {
         num1 = 0;
